@@ -29,6 +29,7 @@ module.exports = (env) => {
         './src/ts/steps-links.ts',
         './src/ts/chem-editor.ts',
         './src/ts/dspace.ts',
+        './src/ts/inveniordm.ts',
         './src/ts/ketcher-editor.jsx',
         './src/ts/compounds-table.jsx',
         './src/ts/users-table.jsx',

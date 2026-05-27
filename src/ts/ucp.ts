@@ -24,6 +24,10 @@ if (window.location.pathname === '/ucp.php') {
     if (!params['orcid']) {
       params['orcid'] = null;
     }
+    // Don't send token if empty (use the clear button to explicitly remove it)
+    if (!params['inveniordm_token']) {
+      delete params['inveniordm_token'];
+    }
     ApiC.patch(`${Model.User}/me`, params);
   });
 

@@ -425,6 +425,7 @@ class Users extends AbstractRest
         unset($userData['salt']);
         unset($userData['mfa_secret']);
         unset($userData['token']);
+        unset($userData['inveniordm_token']);
         // keep sig_privkey in response if requester is target
         if ($this->requester->userData['userid'] !== $this->userData['userid']) {
             unset($userData['sig_privkey']);

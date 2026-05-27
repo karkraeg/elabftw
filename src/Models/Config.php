@@ -225,6 +225,7 @@ final class Config extends AbstractRest
             ('dspace_host', ''),
             ('dspace_user', ''),
             ('dspace_password', ''),
+            ('inveniordm_host', ''),
             ('logo_header_svg', :logo_header_svg),
             ('logo_light_svg', :logo_light_svg),
             ('logo_dark_svg', :logo_dark_svg),

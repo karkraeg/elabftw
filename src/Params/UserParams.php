@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace Elabftw\Params;
 
+use Defuse\Crypto\Crypto;
+use Defuse\Crypto\Key;
+use Elabftw\Elabftw\Env;
 use Elabftw\Enums\DisplayMode;
 use Elabftw\Enums\Entrypoint;
 use Elabftw\Enums\Language;
@@ -100,6 +103,15 @@ final class UserParams extends ContentParams
             'default_read', 'default_write' => $this->getCanJson(),
             'default_read_base', 'default_write_base' => $this->getCanBase(),
             'pdf_format' => (PdfFormat::tryFrom($this->content) ?? PdfFormat::A4)->value,
+            'inveniordm_token' => (
+                function () {
+                    $val = $this->asString();
+                    if (empty($val)) {
+                        return '';
+                    }
+                    return Crypto::encrypt($val, Key::loadFromAsciiSafeString(Env::asString('SECRET_KEY')));
+                }
+            )(),
             default => throw new ImproperActionException('Invalid target for user update.'),
         };
     }
