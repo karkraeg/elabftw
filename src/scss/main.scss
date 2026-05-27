@@ -259,6 +259,11 @@ select.form-control {
 .dropdown-item {
   color: var(--medium);
   cursor: pointer;
+
+  a,
+  i {
+    color: var(--strongest);
+  }
 }
 
 .dropdown-item > a {
@@ -268,13 +273,6 @@ select.form-control {
 .dropdown-item:hover {
   background-color: var(--superlight);
   color: var(--strongest);
-}
-
-.dropdown-item {
-  a,
-  i {
-    color: var(--strongest);
-  }
 }
 
 /* BLOCKQUOTE */
@@ -507,16 +505,11 @@ button:disabled {
   border-collapse: separate;
   border-spacing: 0;
 
-  button,
   span,
   thead,
   th,
   td {
     color: var(--mediumstrong);
-  }
-
-  td button {
-    color: var(--chrome-fg);
   }
 
   td,
